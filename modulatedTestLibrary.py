@@ -191,7 +191,8 @@ def IOWork(ArrayComn):
          if ArrayComn[iComnCont][0] == "TCP":
 
             # Envia a string por meio do socket e grava timestamp
-            writeSocket(ArrayComn[iComnCont][1], readStrData() + '!')
+            if isinstance(ArrayComn[iComnCont][1], socket.socket): # JTVeiga: Check if it´s a socket object
+               writeSocket(ArrayComn[iComnCont][1], readStrData() + '!')
 
          # Se o dispositivo for do tipo serial
          elif ArrayComn[iComnCont][0] == "Serial":
@@ -213,7 +214,8 @@ def IOWork(ArrayComn):
          if ArrayComn[iComnCont][0] == "TCP":
 
             # Recebe a string por meio do socket
-            setStrData(strReadSocket(ArrayComn[iComnCont][1], readOConfig()["iNumData"]))
+            if isinstance(ArrayComn[iComnCont][1], socket.socket): # JTVeiga: Check if it´s a socket object
+               setStrData(strReadSocket(ArrayComn[iComnCont][1], readOConfig()["iNumData"]))
 
          # Se o dispositivo for do tipo serial
          elif ArrayComn[iComnCont][0] == "Serial":
