@@ -20,7 +20,7 @@
 ##################################################################################################################################################################################
 # Import de bibliotecas necessárias
 
-import socket
+from socket import *
 from serialSocketLibrary import *
 from configGlobalVariables import *
 
@@ -191,7 +191,7 @@ def IOWork(ArrayComn):
          if ArrayComn[iComnCont][0] == "TCP":
 
             # Envia a string por meio do socket e grava timestamp
-            if isinstance(ArrayComn[iComnCont][1], socket.socket): # JTVeiga: Check if it´s a socket object
+            if isinstance(ArrayComn[iComnCont][1], socket): # JTVeiga: Check if it´s a socket object
                writeSocket(ArrayComn[iComnCont][1], readStrData() + '!')
 
          # Se o dispositivo for do tipo serial
@@ -214,7 +214,7 @@ def IOWork(ArrayComn):
          if ArrayComn[iComnCont][0] == "TCP":
 
             # Recebe a string por meio do socket
-            if isinstance(ArrayComn[iComnCont][1], socket.socket): # JTVeiga: Check if it´s a socket object
+            if isinstance(ArrayComn[iComnCont][1], socket): # JTVeiga: Check if it´s a socket object
                setStrData(strReadSocket(ArrayComn[iComnCont][1], readOConfig()["iNumData"]))
 
          # Se o dispositivo for do tipo serial
