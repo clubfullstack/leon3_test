@@ -20,7 +20,7 @@
 ##################################################################################################################################################################################
 # Import de bibliotecas necessárias
 
-
+import socket
 from serialSocketLibrary import *
 from configGlobalVariables import *
 
